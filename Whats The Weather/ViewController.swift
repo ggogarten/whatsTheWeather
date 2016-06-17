@@ -17,45 +17,63 @@ class ViewController: UIViewController {
     
     @IBAction func findWeather(sender: AnyObject) {
         
-        let url = NSURL(string: "http://www.weather-forecast.com/locations/" + cityTextField.text!.stringByReplacingOccurrencesOfString(" ", withString: "-") + "/forecasts/latest")!
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+        var wasSuccesfull = false
+        
+        
+        let attemptedUrl = NSURL(string: "http://www.weather-forecast.com/locations/" + cityTextField.text!.stringByReplacingOccurrencesOfString(" ", withString: "-") + "/forecasts/latest")
+        
+        if let url = attemptedUrl {
             
-            if let urlContent = data {
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
                 
-                let webContent = NSString(data: urlContent, encoding: NSUTF8StringEncoding)
-                
-                let websiteArray = webContent!.componentsSeparatedByString("3 Day Weather Forecast Summary:</b><span class=\"read-more-small\"><span class=\"read-more-content\"> <span class=\"phrase\">")
-                
-                if websiteArray.count > 1 {
+                if let urlContent = data {
                     
-                    let weatherArray = websiteArray[1].componentsSeparatedByString("</span>")
+                    let webContent = NSString(data: urlContent, encoding: NSUTF8StringEncoding)
                     
-                    if weatherArray.count > 0 {
+                    let websiteArray = webContent!.componentsSeparatedByString("3 Day Weather Forecast Summary:</b><span class=\"read-more-small\"><span class=\"read-more-content\"> <span class=\"phrase\">")
+                    
+                    if websiteArray.count > 1 {
                         
-                        let weatherSummary = weatherArray[0].stringByReplacingOccurrencesOfString("&deg;", withString: "º")
+                        let weatherArray = websiteArray[1].componentsSeparatedByString("</span>")
                         
-                        dispatch_async(dispatch_get_main_queue(), {
+                        if weatherArray.count > 1 {
                             
-                            self.resultLabel.text = weatherSummary
+                            wasSuccesfull = true
+                            
+                            let weatherSummary = weatherArray[0].stringByReplacingOccurrencesOfString("&deg;", withString: "º")
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                self.resultLabel.text = weatherSummary
+                                
+                                
+                            })
                             
                             
-                        })
+                            
+                        }
                         
-                        
-                        
+
+                    
                     }
+                }
+                
+                if wasSuccesfull == false {
                     
-                    
+                    self.resultLabel.text = "Couldn't find the weather for that city - please try again."
                     
                 }
+                
             }
+            
+            task.resume()
+        
+        } else {
+            
+            self.resultLabel.text = "Couldn't find the weather for that city - please try again."
+            
         }
-        
-        task.resume()
-
-        
-        
         
     }
     
