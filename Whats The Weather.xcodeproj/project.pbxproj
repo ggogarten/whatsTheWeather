@@ -12,6 +12,7 @@
 		3EBD09A31D1480B20036CC40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBD09A11D1480B20036CC40 /* Main.storyboard */; };
 		3EBD09A51D1480B20036CC40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBD09A41D1480B20036CC40 /* Assets.xcassets */; };
 		3EBD09A81D1480B20036CC40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBD09A61D1480B20036CC40 /* LaunchScreen.storyboard */; };
+		3EBD09B01D14814A0036CC40 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EBD09AF1D14814A0036CC40 /* background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3EBD09A41D1480B20036CC40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBD09A71D1480B20036CC40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBD09A91D1480B20036CC40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EBD09AF1D14814A0036CC40 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				3EBD099D1D1480B20036CC40 /* AppDelegate.swift */,
 				3EBD099F1D1480B20036CC40 /* ViewController.swift */,
 				3EBD09A11D1480B20036CC40 /* Main.storyboard */,
+				3EBD09AF1D14814A0036CC40 /* background.jpg */,
 				3EBD09A41D1480B20036CC40 /* Assets.xcassets */,
 				3EBD09A61D1480B20036CC40 /* LaunchScreen.storyboard */,
 				3EBD09A91D1480B20036CC40 /* Info.plist */,
@@ -124,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EBD09A81D1480B20036CC40 /* LaunchScreen.storyboard in Resources */,
+				3EBD09B01D14814A0036CC40 /* background.jpg in Resources */,
 				3EBD09A51D1480B20036CC40 /* Assets.xcassets in Resources */,
 				3EBD09A31D1480B20036CC40 /* Main.storyboard in Resources */,
 			);
